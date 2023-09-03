@@ -1,4 +1,5 @@
 rpi_ws281x/
+rpi_ws281x.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
