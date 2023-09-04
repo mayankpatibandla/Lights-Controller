@@ -15,4 +15,4 @@ if __name__ == "__main__":
 
     for i in range(len(lights)):
         lights[i] = 0x00FF00
-    strip.show()
+    lights.strip.show()
