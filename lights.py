@@ -11,8 +11,8 @@ LED_CHANNEL = 0
 
 if __name__ == "__main__":
     strip = PixelStrip(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
-    Controller(strip)
+    lights = Controller(strip)
 
-    for i in range(len(Controller)):
-        Controller[i] = 0x00FF00
+    for i in range(len(lights)):
+        lights[i] = 0x00FF00
     strip.show()
