@@ -1,5 +1,6 @@
 from rpi_ws281x import PixelStrip
 
+
 class Controller:
     def __init__(self, strip: PixelStrip):
         self.currentIter = -1
@@ -13,7 +14,7 @@ class Controller:
 
     def __iter__(self):
         return self
-    
+
     def __setitem__(self, index: int, color: int):
         self.strip.setPixelColor(index, color)
 
