@@ -13,5 +13,5 @@ if __name__ == "__main__":
     strip = PixelStrip(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
     lights = Controller(strip)
 
-    lights.set_all(0xFF72F8)
+    lights[100:200] = 0xFF6E00
     lights.strip.show()
