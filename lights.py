@@ -15,3 +15,4 @@ if __name__ == "__main__":
 
     lights[100:200] = 0xFF00FF
     lights.strip.show()
+    print("done")
