@@ -15,14 +15,14 @@ class Controller:
     def __iter__(self):
         return self
 
-    def __setitem__(self, pos: int, color: int):
+    def __setitem__(self, pos, color: int):
         if isinstance(pos, slice):
             for i in range(*pos.indices(len(self))):
                 self.set(i, color)
         else:
             self.set(pos, color)
 
-    def __getitem__(self, pos: int | slice):
+    def __getitem__(self, pos):
         if isinstance(pos, slice):
             return [self.strip.getPixelColor(i) for i in range(*pos.indices(len(self)))]
         else:
