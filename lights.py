@@ -1,4 +1,5 @@
 from lights_controller import *
+import time
 
 # LED config
 LED_COUNT = 288
@@ -9,10 +10,19 @@ LED_INVERT = False
 LED_BRIGHTNESS = 255
 LED_CHANNEL = 0
 
-if __name__ == "__main__":
-    strip = PixelStrip(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
-    lights = Controller(strip)
+strip = PixelStrip(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
+lights = Controller(strip)
 
-    lights[::] = 0xFF00FF
+def foo():
+    print("LIGHTS!!")
+
+if __name__ == "__main__":
+    lights.clear()
+    lights.update()
+
+    time.sleep(3)
+    
+    lights[::] = 0xFFFFFF
     lights.strip.show()
+    
     print("done")
