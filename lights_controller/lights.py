@@ -15,6 +15,14 @@ lights = Controller(strip)
 
 def foo():
     print("LIGHTS!!")
+    
+def off():
+    lights.clear()
+    lights.update()
+    
+def setall(color):
+    lights.set_all(color)
+    lights.update()
 
 if __name__ == "__main__":
     lights.clear()
