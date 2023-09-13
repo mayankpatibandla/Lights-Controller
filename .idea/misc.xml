@@ -3,8 +3,7 @@
   <component name="Black">
     <option name="enabledOnReformat" value="true" />
     <option name="enabledOnSave" value="true" />
-    <option name="executionMode" value="BINARY" />
-    <option name="pathToExecutable" value="C:\Users\mayan\AppData\Local\Programs\Python\Python39\Scripts\black.exe" />
+    <option name="sdkUUID" value="fc092154-d57c-4655-a369-5a469d29e848" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (Lights-Controller)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (3)" project-jdk-type="Python SDK" />
 </project>

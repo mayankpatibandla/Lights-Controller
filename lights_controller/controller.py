@@ -40,9 +40,9 @@ class Controller:
     def set_all(self, color: int):
         for i in range(len(self)):
             self.set(i, color)
-            
+
     def clear(self):
         self.set_all(0)
-        
+
     def update(self):
         self.strip.show()
