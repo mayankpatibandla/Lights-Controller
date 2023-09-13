@@ -1,4 +1,4 @@
-from lights_controller import *
+from .controller import *
 import time
 
 # LED config
