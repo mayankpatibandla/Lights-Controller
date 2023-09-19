@@ -7,7 +7,7 @@ class Controller:
         self._max_iter = strip.numPixels() - 1
 
         self._strip = strip
-        strip.begin()
+        self._strip.begin()
 
     def __len__(self):
         return self._strip.numPixels()
