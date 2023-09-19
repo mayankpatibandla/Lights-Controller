@@ -24,10 +24,7 @@ class Controller:
 
     def __getitem__(self, pos):
         if isinstance(pos, slice):
-            return [
-                self._strip.getPixelColor(i)
-                for i in range(*pos.indices(len(self)))
-            ]
+            return [self._strip.getPixelColor(i) for i in range(*pos.indices(len(self)))]
         else:
             return self._strip.getPixelColor(pos)
 
