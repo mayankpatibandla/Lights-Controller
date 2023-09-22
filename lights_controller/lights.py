@@ -22,5 +22,5 @@ lights = Controller(
 )
 
 if __name__ == "__main__":
-    lights.clear()
+    lights[:] = 0
     lights.update()
