@@ -1,6 +1,10 @@
 from rpi_ws281x import PixelStrip
 
 
+def clamp(value, minimum, maximum):
+    return max(minimum, min(value, maximum))
+
+
 class Controller:
     def __init__(self, strip: PixelStrip):
         self._current_iter = -1
@@ -16,6 +20,7 @@ class Controller:
         return self
 
     def __setitem__(self, pos, color: int):
+        color = clamp(color, 0, 0xFFFFFF)
         if isinstance(pos, slice):
             for i in range(*pos.indices(len(self))):
                 self._strip.setPixelColor(i, color)
@@ -34,7 +39,7 @@ class Controller:
         raise StopIteration
 
     def brightness(self, brightness: int):
-        self._strip.setBrightness(brightness)
+        self._strip.setBrightness(clamp(brightness, 0, 0xFF))
 
     def update(self):
         self._strip.show()
