@@ -33,7 +33,7 @@ class Controller:
             return self[self._current_iter]
         raise StopIteration
 
-    def set_brightness(self, brightness: int):
+    def brightness(self, brightness: int):
         self._strip.setBrightness(brightness)
 
     def update(self):
