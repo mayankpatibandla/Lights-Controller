@@ -10,7 +10,7 @@ save_data = {}
 for key, file in files.items():
     if not os.path.isfile(os.path.join(path, file)):
         with open(os.path.join(path, file), "w", encoding="utf-8") as f:
-            pass
+            f.write("{}")
     with open(os.path.join(path, file), "r", encoding="utf-8") as f:
         save_data[key] = json.load(f)
 
