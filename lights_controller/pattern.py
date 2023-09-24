@@ -1,7 +1,8 @@
 import json
 import os
 
-path = os.path.join(os.path.expanduser("~"), ".lights")
+path = os.path.join(os.path.expanduser(f"~{os.environ['SUDO_USER']}"), ".lights")
+print(path)
 os.makedirs(path, exist_ok=True)
 
 files = {"saved_colors": "saved_colors.json", "saved_patterns": "saved_patterns.json"}
@@ -11,7 +12,10 @@ for key, file in files.items():
     if not os.path.isfile(os.path.join(path, file)):
         with open(os.path.join(path, file), "w", encoding="utf-8") as f:
             f.write("{}")
+        print("no file")
+    print("is file")
     with open(os.path.join(path, file), "r", encoding="utf-8") as f:
+        print(f)
         save_data[key] = json.load(f)
 
 
