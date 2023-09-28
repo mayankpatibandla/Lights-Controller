@@ -23,6 +23,13 @@ def save_color(name: str, color: str):
         json.dump(save_data["saved_colors"], colors_file, indent=2)
 
 
+def delete_color(name: str):
+    del save_data["saved_colors"][name]
+
+    with open(os.path.join(lights_path, files["saved_colors"]), "w", encoding="utf-8") as colors_file:
+        json.dump(save_data["saved_colors"], colors_file, indent=2)
+
+
 def load_color(name: str):
     return save_data["saved_colors"][name]
 
@@ -33,6 +40,13 @@ def list_colors():
 
 def save_pattern(name: str, pattern: list[str]):
     save_data["saved_patterns"][name] = pattern
+
+    with open(os.path.join(lights_path, files["saved_patterns"]), "w", encoding="utf-8") as patterns_file:
+        json.dump(save_data["saved_patterns"], patterns_file, indent=2)
+
+
+def delete_pattern(name: str):
+    del save_data["saved_patterns"][name]
 
     with open(os.path.join(lights_path, files["saved_patterns"]), "w", encoding="utf-8") as patterns_file:
         json.dump(save_data["saved_patterns"], patterns_file, indent=2)
