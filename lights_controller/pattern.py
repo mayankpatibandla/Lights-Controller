@@ -27,6 +27,10 @@ def load_color(name: str):
     return save_data["saved_colors"][name]
 
 
+def list_colors():
+    return save_data["saved_colors"].keys(), save_data["saved_colors"].values()
+
+
 def save_pattern(name: str, pattern: list[str]):
     save_data["saved_patterns"][name] = pattern
 
@@ -36,3 +40,7 @@ def save_pattern(name: str, pattern: list[str]):
 
 def load_pattern(name: str):
     return save_data["saved_patterns"][name]
+
+
+def list_patterns():
+    return save_data["saved_patterns"].keys(), save_data["saved_patterns"].values()
