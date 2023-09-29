@@ -14,7 +14,7 @@ class Controller:
         return self._strip.numPixels()
 
     def __iter__(self):
-        yield from self
+        yield from self[:]
 
     def __setitem__(self, pos, color):
         if isinstance(color, int):
