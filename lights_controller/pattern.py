@@ -4,7 +4,11 @@ import os
 lights_path = os.path.join(os.path.expanduser(f"~{os.environ['SUDO_USER']}"), ".lights")
 os.makedirs(lights_path, exist_ok=True)
 
-files = {"saved_colors": "saved_colors.json", "saved_patterns": "saved_patterns.json"}
+files = {
+    "saved_colors": "saved_colors.json",
+    "saved_patterns": "saved_patterns.json",
+    "last_configuration": "last_configuration.json",
+}
 save_data = {}
 
 for key, file in files.items():
@@ -58,3 +62,14 @@ def load_pattern(name: str):
 
 def list_patterns():
     return save_data["saved_patterns"].keys(), save_data["saved_patterns"].values()
+
+
+def save_last_configuration(configuration: dict):
+    save_data["last_configuration"] = configuration
+
+    with open(os.path.join(lights_path, files["last_configuration"]), "w", encoding="utf-8") as last_configuration_file:
+        json.dump(save_data["last_configuration"], last_configuration_file, indent=2)
+
+
+def load_last_configuration():
+    return save_data["last_configuration"]
