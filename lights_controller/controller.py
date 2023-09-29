@@ -34,8 +34,10 @@ class Controller:
             return [self._strip.getPixelColor(i) for i in range(*pos.indices(len(self)))]
         return self._strip.getPixelColor(pos)
 
-    def brightness(self, brightness: int):
-        self._strip.setBrightness(clamp(brightness, 0, 0xFF))
+    def brightness(self, brightness=None):
+        if brightness is not None:
+            self._strip.setBrightness(clamp(brightness, 0, 0xFF))
+        return self._strip.getBrightness()
 
     def update(self):
         self._strip.show()
