@@ -1,3 +1,5 @@
+import time
+
 from rpi_ws281x import PixelStrip
 
 
@@ -9,6 +11,8 @@ class Controller:
     def __init__(self, strip: PixelStrip):
         self._strip = strip
         self._strip.begin()
+
+        self.animator = self.Animator(self)
 
     def __len__(self):
         return self._strip.numPixels()
@@ -41,3 +45,14 @@ class Controller:
 
     def update(self):
         self._strip.show()
+
+    class Animator:
+        def __init__(self, controller: "Controller"):
+            self._controller = controller
+
+        def flash(self, color, duration):
+            self._controller[:] = color
+            self._controller.update()
+            time.sleep(duration)
+            self._controller[:] = 0
+            self._controller.update()
