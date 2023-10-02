@@ -51,8 +51,12 @@ class Controller:
             self._controller = controller
 
         def flash(self, color, duration):
+            original_pattern = self._controller[:]
+
             self._controller[:] = color
             self._controller.update()
+
             time.sleep(duration)
-            self._controller[:] = 0
+
+            self._controller[:] = original_pattern
             self._controller.update()
