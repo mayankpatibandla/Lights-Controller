@@ -52,10 +52,10 @@ class Controller:
         def __init__(self, controller: "Controller"):
             self._controller = controller
 
-        async def flash(self, color, duration):
+        async def flash(self, pattern, duration: float):
             original_pattern = self._controller[:]
 
-            self._controller[:] = color
+            self._controller[:] = pattern
             self._controller.update()
 
             await asyncio.sleep(duration)
