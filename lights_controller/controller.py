@@ -1,4 +1,4 @@
-import time
+import asyncio
 
 from rpi_ws281x import PixelStrip
 
@@ -52,13 +52,13 @@ class Controller:
         def __init__(self, controller: "Controller"):
             self._controller = controller
 
-        def flash(self, color, duration):
+        async def flash(self, color, duration):
             original_pattern = self._controller[:]
 
             self._controller[:] = color
             self._controller.update()
 
-            time.sleep(duration)
+            await asyncio.sleep(duration)
 
             self._controller[:] = original_pattern
             self._controller.update()
