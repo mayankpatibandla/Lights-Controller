@@ -23,6 +23,7 @@ class Controller:
     def __setitem__(self, pos, color):
         if isinstance(color, int):
             color = clamp(color, 0, 0xFFFFFF)
+
             if isinstance(pos, slice):
                 for i in range(*pos.indices(len(self))):
                     self._strip.setPixelColor(i, color)
@@ -30,6 +31,7 @@ class Controller:
                 self._strip.setPixelColor(pos, color)
         elif isinstance(color, list):
             color = [clamp(c, 0, 0xFFFFFF) for c in color]
+
             for i in range(*pos.indices(len(self))):
                 self._strip.setPixelColor(i, color[i])
 
