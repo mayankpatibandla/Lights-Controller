@@ -42,8 +42,8 @@ def list_colors():
     return save_data["saved_colors"].keys(), save_data["saved_colors"].values()
 
 
-def save_pattern(name: str, pattern: list[str]):
-    save_data["saved_patterns"][name] = pattern
+def save_pattern(name: str, colors: list[str], brightness: int):
+    save_data["saved_patterns"][name] = {"colors": colors, "brightness": brightness}
 
     with open(os.path.join(lights_path, files["saved_patterns"]), "w", encoding="utf-8") as patterns_file:
         json.dump(save_data["saved_patterns"], patterns_file, indent=2)
@@ -64,8 +64,8 @@ def list_patterns():
     return save_data["saved_patterns"].keys(), save_data["saved_patterns"].values()
 
 
-def save_last_configuration(configuration: dict):
-    save_data["last_configuration"] = configuration
+def save_last_configuration(colors: list[str], brightness: int):
+    save_data["last_configuration"] = {"colors": colors, "brightness": brightness}
 
     with open(os.path.join(lights_path, files["last_configuration"]), "w", encoding="utf-8") as last_configuration_file:
         json.dump(save_data["last_configuration"], last_configuration_file, indent=2)
