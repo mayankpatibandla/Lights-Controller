@@ -56,13 +56,16 @@ class Controller:
         def __init__(self, controller: "Controller") -> None:
             self._controller = controller
 
-        async def flash(self, pattern: int | list[int], duration: float) -> None:
+        async def flash(self, pattern: int | list[int], brightness: int, duration: float) -> None:
             original_pattern = self._controller[:]
+            original_brightness = self._controller.brightness()
 
             self._controller[:] = pattern
+            self._controller.brightness(brightness)
             self._controller.update()
 
             await asyncio.sleep(duration)
 
             self._controller[:] = original_pattern
+            self._controller.brightness(original_brightness)
             self._controller.update()
