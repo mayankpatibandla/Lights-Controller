@@ -1,4 +1,6 @@
 # Lights-Controller
 
 # Installation
-`pip install -e . --config-settings editable_mode=strict`
+```bash
+pip install -e . --config-settings editable_mode=strict
+```
